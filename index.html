@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="manifest.webmanifest"><meta name="theme-color" content="#070a1a"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CampusBite – Skip the Canteen Queue</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="ctl"><button id="lg">EN</button><button id="th">🎨</button><button id="jm">🎬 Judge</button></div>
+<header class="hero" id="top"><i class="orb o1"></i><i class="orb o2"></i><div class="wrap">
+<div class="logo"><div class="lg">🍽️</div><div>CampusBite<div class="clg">Mohammad Hasan P.G. College, Jaunpur<br>उड़ान 2026 · BCA Department</div></div></div>
+<span class="tag">Udaan 2026 · New Business Model · BCA Department</span>
+<h1>Line chhodo,<br>khana pakdo.</h1>
+<p>Canteen ki line me khade mat raho. Phone se order karo, time pe pickup karo ya class tak delivery pao.</p>
+<a class="btn" href="#demo">Try Demo Order</a>
+<div id="d3"><canvas id="c3"></canvas><small data-en="Drag to rotate the 3D scene">Drag karke 3D ghumao</small></div>
+<div class="stat"><div><b id="hk1">0</b><small data-en="Orders placed">Orders placed</small></div><div><b id="hk2">1</b><small data-en="Partner canteens">Partner canteens</small></div><div><b>~8 min</b><small data-en="Avg wait">Avg wait</small></div></div>
+</div></header>
+
+<main class="wrap" id="mn">
+<section><h2>Problem</h2><p class="sub">College canteen me har student ko ye dikkat hoti hai:</p>
+<div class="grid g2">
+<div class="card"><div class="ic">⏳</div><h3>Lambi line</h3><p>Break sirf 20 min ka, aadha time line me nikal jata hai.</p></div>
+<div class="card"><div class="ic">📋</div><h3>Menu pata nahi</h3><p>Aaj kya available hai, rate kya hai, pehle se kuch pata nahi.</p></div>
+<div class="card"><div class="ic">💸</div><h3>Cash ki dikkat</h3><p>Chhutte paise aur hisaab me galti.</p></div>
+<div class="card"><div class="ic">🗑️</div><h3>Food waste</h3><p>Canteen ko demand ka andaza nahi hota.</p></div>
+</div></section>
+
+<section><h2>Solution</h2><p class="sub">CampusBite ek simple pre-order platform hai.</p>
+<div class="steps">
+<div class="step"><div><b>Menu dekho</b><br><span class="sub">Live menu aur rate mobile par.</span></div></div>
+<div class="step"><div><b>Order + UPI payment</b><br><span class="sub">Pehle se order karo, cash ki zaroorat nahi.</span></div></div>
+<div class="step"><div><b>Pickup ya delivery</b><br><span class="sub">Token number ke saath ready food uthao.</span></div></div>
+</div></section>
+
+<section id="sug"><h2 data-en="What to eat today?">Aaj Kya Khaun?</h2><p class="sub" data-en="Set budget and mood, get the best combo.">Budget aur mood chuno, best combo pao.</p>
+<div class="card"><div class="rng"><label><span data-en="Budget (₹)">Budget (₹)</span> <b id="bv">60</b></label><input type="range" id="bg" min="20" max="150" step="5" value="60"></div>
+<div class="chips" id="moods"><button data-md="spicy">🌶️ Spicy</button><button data-md="sweet">🍬 Sweet</button><button data-md="healthy">🥗 Healthy</button><button data-md="quick">⚡ Quick</button></div>
+<button class="order" id="sgb" style="margin-top:0" data-en="✨ Suggest">✨ Suggest karo</button><div id="sgr" style="margin-top:12px"></div></div></section>
+
+<section id="demo"><h2>Live Demo</h2><p class="sub">Menu chuno, quantity badlo, order karo.</p>
+<select id="cs"></select><div class="sub" id="crw" style="margin:-4px 0 10px;font-size:.85rem"></div>
+<div class="card" id="hh" style="margin-bottom:12px"><div id="hht" style="font-weight:700"></div><button class="nb" id="hhb" style="margin:8px 0 0" data-en="▶ Demo Happy Hour">▶ Demo Happy Hour</button>
+<div class="ln" style="margin-top:8px"><span>👛 Wallet</span><span><b id="wbal">₹0</b> <button class="nb" id="wadd" style="margin:0 0 0 6px">+₹100</button></span></div></div>
+<div class="cp"><input id="vin" placeholder="🎤 'ek chai aur do samosa'" style="text-transform:none"><button id="vmic">🎤</button><button id="vadd" data-en="Add">Add</button></div><div class="msg" id="vmg2" style="margin:-2px 0 10px"></div>
+<input id="sq" type="search" placeholder="Search menu...">
+<div class="chips" id="cats"><button data-c="all" class="on" data-en="All">Sab</button><button data-c="s" data-en="Snacks">Snacks</button><button data-c="d" data-en="Drinks">Drinks</button><button data-c="m" data-en="Meals">Meals</button><button data-c="x" data-en="Desserts">Desserts</button></div>
+<div class="card demo" id="menu"></div>
+<div class="seg" style="margin-top:12px"><button data-m="pickup" class="on" data-en="🚶 Pickup (free)">🚶 Pickup (free)</button><button data-m="delivery" data-en="🛵 Class delivery +₹10">🛵 Class delivery +₹10</button></div>
+<div class="seg2" id="pay"><button data-p="UPI" class="on">📱 UPI</button><button data-p="Cash">💵 Cash</button><button data-p="Card">💳 Card</button><button data-p="Wallet">👛 Wallet</button></div>
+<div class="seg3"><button data-dy="Today" class="on" data-en="📅 Today">📅 Aaj</button><button data-dy="Tomorrow" data-en="🗓️ Tomorrow (pre-order)">🗓️ Kal (pre-order)</button></div>
+<select class="fi" id="slot"><option>ASAP (abhi)</option><option>Next break</option><option>Lunch break</option><option>After class</option></select>
+<div class="card"><div class="ln"><span data-en="Subtotal">Subtotal</span><span id="sub">₹0</span></div><div class="ln"><span data-en="Delivery">Delivery</span><span id="dl">₹0</span></div><div class="ln"><span data-en="Discount">Discount</span><span id="ds">-₹0</span></div><div class="total"><span>Total</span><span id="tot">₹0</span></div>
+<label class="ln" style="cursor:pointer"><span data-en="🌱 Eco: I bring my own box/cup (−₹2)">🌱 Eco: apna dabba/cup laaya (−₹2)</span><input type="checkbox" id="eco"></label><div class="ln"><span data-en="🌱 Your eco orders">🌱 Aapke eco orders</span><b id="ecn">0</b></div>
+<div class="cp"><input id="cin" placeholder="Coupon: FIRST10"><button id="cap" data-en="Apply">Apply</button></div><div class="msg" id="cmsg" style="margin:0"></div>
+<div class="ln" style="margin-top:6px"><span data-en="⭐ Loyalty points">⭐ Loyalty points</span><b id="pts">0</b></div>
+<div class="ln" style="margin-top:6px;align-items:center"><span data-en="👥 Split bill (people)">👥 Split bill (people)</span><span class="qty"><button id="spm">−</button><b id="spn">1</b><button id="spp">+</button></span></div><div class="ln" id="spl" style="display:none"><span data-en="Each person pays">Each person pays</span><b id="spa">₹0</b></div><button class="nb" id="spw" style="display:none;margin:6px 0 0" data-en="📲 Share split">📲 Share split</button></div>
+<button class="order" id="go">Place Order</button>
+<div class="msg" id="msg"></div>
+<div class="card" id="mo" style="margin-top:12px"><b data-en="My Orders (tracked live)">Mere Orders (live track)</b><div id="mol"></div></div>
+<div class="card track" id="trk" style="margin-top:12px"><div class="sub" style="margin:0">Aapka Token</div><div class="tk" id="tkn">#00</div>
+<div class="prog"><i id="pg"></i></div><div class="stl"><span id="s1">Received</span><span id="s2">Preparing</span><span id="s3">Ready</span></div>
+<div id="pq" style="display:none;margin-top:14px"><div id="pqr" style="background:#fff;padding:10px;border-radius:12px;display:inline-block"></div><div class="tk" id="pcd" style="font-size:1.8rem"></div><small class="sub" data-en="Show this code/QR at the counter">Counter par ye code/QR dikhayein</small></div></div></section>
+<section id="own"><h2 data-en="Canteen Owner View">Canteen Owner View</h2><p class="sub" data-en="Orders stay pending here until you hand them over. Tap the button to move each order forward.">Order tab tak pending rehte hain jab tak pickup na ho jaye. Button dabake order aage badhayein.</p>
+<div class="card" id="lock"><b data-en="🔒 Owner login">🔒 Owner login</b><p class="sub" style="margin:6px 0 10px" data-en="Enter PIN to open the canteen panel (demo PIN: 1234).">Canteen panel kholne ke liye PIN daalein (demo PIN: 1234).</p><input class="fi" id="pin" type="password" inputmode="numeric" maxlength="4" placeholder="••••"><button class="order" id="unl" style="margin-top:0" data-en="Unlock">Unlock</button><div class="msg" id="lm" style="color:#d9363e"></div></div>
+<div id="ownbox" style="display:none">
+<div class="card"><div class="grid kpi"><div><b id="ko">0</b><small data-en="Pending orders">Pending orders</small></div><div><b id="kr">₹0</b><small data-en="Sales">Sales</small></div><div><b id="kc">₹0</b><small data-en="Our commission">Hamara commission</small></div></div><div class="cp" style="margin-top:12px"><input id="vcode" inputmode="numeric" maxlength="12" placeholder="Pickup code / QR"><button id="vbtn" data-en="Verify">Verify</button></div><div class="msg" id="vres" style="margin:0 0 6px"></div><div id="ol"></div></div>
+<div class="card" style="margin-top:12px"><b data-en="📊 Analytics">📊 Analytics</b><div class="grid kpi" style="margin:10px 0"><div><b id="avo">₹0</b><small data-en="Avg order">Avg order</small></div><div><b id="avr">–</b><small data-en="Avg rating">Avg rating</small></div><div><b id="apd">0</b><small data-en="Delivered">Delivered</small></div></div>
+<small data-en="Orders by hour">Orders by hour</small><div id="anh" style="display:flex;align-items:flex-end;gap:6px;height:110px;margin:6px 0 12px"></div>
+<small data-en="Top items">Top items</small><div id="ant"></div>
+<small data-en="📅 Tomorrow's prep list">📅 Kal ki taiyari (pre-orders)</small><div id="prep"></div></div>
+<button class="nb" id="lockb" style="margin:12px 0 0" data-en="🔒 Lock panel">🔒 Lock panel</button></div></section>
+
+<section id="join"><h2 data-en="Add Your Canteen">Apni Canteen Add Karein</h2><p class="sub" data-en="Any college canteen can join CampusBite in a minute.">Koi bhi college canteen 1 minute me CampusBite se jud sakti hai.</p>
+<div class="card"><input class="fi" id="cn" placeholder="Canteen name"><input class="fi" id="co" placeholder="Owner name"><input class="fi" id="cph" type="tel" inputmode="numeric" maxlength="10" placeholder="Mobile (10 digits)"><input class="fi" id="ccl" value="Mohammad Hasan P.G. College, Jaunpur">
+<button class="order" id="cadd" style="margin-top:0" data-en="+ Add Canteen">+ Canteen Add Karein</button><div class="msg" id="cmsg2"></div></div>
+<div class="card" style="margin-top:12px"><b data-en="Partner Canteens">Partner Canteens</b><div id="pcl"></div></div>
+<div class="card" style="margin-top:12px"><b data-en="⭐ Reviews">⭐ Reviews</b><div id="rvl"></div></div></section>
+
+<section><h2>Business Model Canvas</h2><p class="sub">Poora model ek nazar me.</p>
+<div class="grid canvas">
+<div class="card"><h3>Customers</h3><p>College students, staff</p></div>
+<div class="card"><h3>Problem</h3><p>Line, time waste, cash issue</p></div>
+<div class="card"><h3>Solution</h3><p>Pre-order app + token pickup</p></div>
+<div class="card"><h3>Revenue</h3><p>5% commission, delivery fee ₹10, ads</p></div>
+<div class="card"><h3>Cost</h3><p>Website, delivery boy, marketing</p></div>
+<div class="card"><h3>Partners</h3><p>Canteen, local shops, college</p></div>
+<div class="card"><h3>Marketing</h3><p>QR posters, Instagram, referral</p></div>
+<div class="card"><h3>Resources</h3><p>Team, server, UPI gateway</p></div>
+<div class="card"><h3>Activities</h3><p>Menu update, order handling</p></div>
+</div></section>
+
+<section><h2>Market &amp; Break-even Calculator</h2><p class="sub">Slider hilao, numbers khud badlenge.</p>
+<div class="card">
+<div class="rng"><label>College students <b id="v1"></b></label><input type="range" id="r1" min="500" max="5000" step="100" value="2000"></div>
+<div class="rng"><label>Kitne % app use karenge <b id="v2"></b></label><input type="range" id="r2" min="5" max="60" value="20"></div>
+<div class="rng"><label>Average order (₹) <b id="v3"></b></label><input type="range" id="r3" min="20" max="150" step="5" value="45"></div>
+<div class="rng"><label>Commission % <b id="v4"></b></label><input type="range" id="r4" min="2" max="15" value="5"></div>
+<div class="rng"><label>Monthly kharcha (₹) <b id="v5"></b></label><input type="range" id="r5" min="3000" max="40000" step="1000" value="12000"></div>
+<div class="grid res">
+<div class="card"><small>Daily orders</small><b id="o1"></b></div>
+<div class="card"><small>Monthly revenue</small><b id="o2"></b></div>
+<div class="card"><small>Monthly profit</small><b id="o3"></b></div>
+<div class="card"><small>Break-even orders/day</small><b id="o4"></b></div>
+</div></div></section>
+
+<section><h2>Profit Projection</h2><p class="sub">5 mahine ka estimate (calculator se judta hai).</p>
+<div class="card"><div class="bars" id="bars"></div>
+<div class="lab"><div>M1</div><div>M2</div><div>M3</div><div>M4</div><div>M5</div></div>
+<p style="margin-top:14px;font-size:.85rem;color:var(--mute)"><span style="color:var(--green)">■</span> Revenue &nbsp; <span style="color:#ff7a1a">■</span> Kharcha</p></div></section>
+
+<section><h2 data-en="Why CampusBite Wins">Kyun CampusBite behtar hai</h2><p class="sub" data-en="Sample estimates for comparison.">Tulna ke liye sample estimate.</p>
+<div class="card tw"><table><tr><th></th><th data-en="Canteen counter">Canteen counter</th><th>Zomato/Swiggy</th><th class="us">CampusBite</th></tr>
+<tr><td data-en="Wait time">Wait time</td><td>10-20 min</td><td>30-45 min</td><td class="us">~8 min</td></tr>
+<tr><td data-en="Delivery fee">Delivery fee</td><td>—</td><td>₹30-50</td><td class="us">₹10</td></tr>
+<tr><td data-en="Prices">Prices</td><td data-en="Low">Kam</td><td data-en="High">Zyada</td><td class="us" data-en="Canteen rates">Canteen rate</td></tr>
+<tr><td data-en="Inside campus">Campus ke andar</td><td data-en="No delivery">Delivery nahi</td><td data-en="Limited">Limited</td><td class="us" data-en="Yes, to class">Haan, class tak</td></tr>
+<tr><td data-en="Cashless">Cashless</td><td>✖</td><td>✔</td><td class="us">✔</td></tr></table></div></section>
+
+<section><h2>SWOT</h2><div class="grid sw">
+<div class="card s1"><h3>Strengths</h3><p data-en="Low cost, campus-focused, saves time, easy UPI payment.">Kam kharcha, campus par focus, time ki bachat, aasan UPI payment.</p></div>
+<div class="card s2"><h3>Weaknesses</h3><p data-en="Depends on canteen partners; needs internet and initial users.">Canteen partners par nirbhar; internet aur shuruaati users chahiye.</p></div>
+<div class="card s3"><h3>Opportunities</h3><p data-en="Many colleges, hostels and coaching centres can copy this model.">Kai colleges, hostels aur coaching centres me yahi model chal sakta hai.</p></div>
+<div class="card s4"><h3>Threats</h3><p data-en="Big food apps, canteen reluctance, payment failures.">Bade food apps, canteen ka hichkichana, payment fail hona.</p></div></div></section>
+
+<section><h2>Roadmap</h2><div class="rm">
+<div><b data-en="Month 1">Mahina 1</b><br><span class="sub" data-en="Pilot with our college canteen.">Apne college ki canteen ke saath pilot.</span></div>
+<div><b data-en="Month 3">Mahina 3</b><br><span class="sub" data-en="3 canteens and UPI live. Break-even target.">3 canteen aur UPI live. Break-even ka target.</span></div>
+<div><b data-en="Month 6">Mahina 6</b><br><span class="sub" data-en="Expand to nearby colleges in Jaunpur.">Jaunpur ke aas-paas ke colleges me expansion.</span></div>
+<div><b data-en="Year 1">Saal 1</b><br><span class="sub" data-en="Mobile app, ads and partner offers.">Mobile app, ads aur partner offers.</span></div></div></section>
+
+<section class="ctr"><h2 data-en="Pitch Summary">Pitch Summary</h2><p class="sub" data-en="One-page summary with the calculator's current numbers.">Calculator ke abhi ke numbers ke saath 1-page summary.</p>
+<button class="order" id="dlb" data-en="📄 Get Summary">📄 Summary Lo</button><div class="card" id="sum"></div></section>
+<section><h2 data-en="Our Impact">Hamara Impact</h2><p class="sub" data-en="Linked to the calculator above.">Upar ke calculator se judta hai.</p><div class="grid kpi">
+<div class="card"><b id="hs">0</b><small data-en="Student hours saved / month">Student ghante bache / mahina</small></div>
+<div class="card"><b id="hp">0</b><small data-en="Paper slips saved / month">Paper slips bachi / mahina</small></div>
+<div class="card"><b>~20%</b><small data-en="Less food waste (est.)">Kam food waste (est.)</small></div></div></section>
+
+<section><h2 data-en="Funding Ask">Funding Ask</h2><p class="sub" data-en="We need ₹50,000 to launch. Where it goes:">Launch ke liye ₹50,000 chahiye. Kahan lagega:</p>
+<div class="card fd"><div>💻 Website &amp; UPI <b>40%</b><i style="width:40%"></i></div><div>📣 Marketing <b>25%</b><i style="width:25%"></i></div><div>🛵 <span data-en="Delivery staff">Delivery staff</span> <b>20%</b><i style="width:20%"></i></div><div>🛡️ <span data-en="Reserve">Reserve</span> <b>15%</b><i style="width:15%"></i></div></div></section>
+
+<section><h2 data-en="Judges FAQ">Judges FAQ</h2>
+<details><summary data-en="Why will canteens join?">Canteen kyun judega?</summary><p data-en="More orders, shorter queues, digital accounts, and zero investment from them.">Zyada orders, chhoti line, digital hisaab aur unka koi investment nahi.</p></details>
+<details><summary data-en="How do you earn?">Paisa kaise kamayenge?</summary><p data-en="5% commission, ₹10 delivery fee and local advertisements.">5% commission, ₹10 delivery fee aur local ads se.</p></details>
+<details><summary data-en="How are you different from Zomato/Swiggy?">Zomato/Swiggy se alag kaise?</summary><p data-en="Campus-only, canteen prices, cheap delivery and faster service.">Sirf campus ke liye, canteen rate, sasti delivery aur tez service.</p></details>
+<details><summary data-en="Are payments safe?">Payment safe hai?</summary><p data-en="We use a trusted UPI payment gateway; we never store card details.">Hum trusted UPI gateway use karenge; card details store nahi karte.</p></details>
+<details><summary data-en="What if the internet is down?">Internet na ho to?</summary><p data-en="Token system plus cash backup at the counter.">Token system aur counter par cash ka backup.</p></details></section>
+
+<section id="pass"><h2 data-en="Monthly Meal Pass">Monthly Meal Pass</h2><p class="sub" data-en="Subscribe once, save on every order. Tap again to cancel.">Ek baar lo, har order par bachat. Dobara tap karke cancel karein.</p>
+<div class="grid g2"><div class="card"><h3>🥉 Basic</h3><p><b>₹499</b> / month</p><p data-en="10% off on every order">Har order par 10% off</p><button class="nb" data-pl="0" style="margin:10px 0 0" data-en="Buy (demo)">Buy (demo)</button></div>
+<div class="card"><h3>🥇 Pro</h3><p><b>₹999</b> / month</p><p data-en="15% off + free delivery + ⚡ priority pickup">15% off + free delivery + ⚡ priority pickup</p><button class="nb" data-pl="1" style="margin:10px 0 0" data-en="Buy (demo)">Buy (demo)</button></div></div><div class="msg" id="pm"></div></section>
+
+<section id="ref"><h2 data-en="Refer &amp; Earn">Refer &amp; Earn</h2><p class="sub" data-en="Invite a friend: ₹50 wallet cashback for you.">Dost ko bulao: aapko ₹50 wallet cashback.</p>
+<div class="card"><div class="ln"><span data-en="Your code">Aapka code</span><b id="rcode">CB0000</b></div><button class="nb" id="rshare" style="margin:6px 0 12px" data-en="📲 Share my code">📲 Code share karein</button>
+<div class="cp"><input id="rin" placeholder="Friend's code: CB1234"><button id="rapply" data-en="Apply">Apply</button></div><div class="msg" id="rmsg"></div></div></section>
+
+<section><h2 data-en="Campus Map">Campus Map</h2><p class="sub" data-en="Tap a canteen to pick it. Your pickup point pulses.">Canteen par tap karke chunein. Aapka pickup point chamakta hai.</p>
+<div class="card"><svg id="cmap" viewBox="0 0 340 220"></svg><small id="mapi" class="sub"></small></div></section>
+
+<section><h2>Hamari Team</h2><p class="sub">BCA Department · Udaan 2026</p><div class="grid team" id="team"></div></section>
+
+<section><h2>Aap Use Karoge?</h2><p class="sub">Apna feedback do.</p>
+<div class="vote" id="vote"><button data-v="Haan">👍 Haan</button><button data-v="Shayad">🤔 Shayad</button><button data-v="Nahi">👎 Nahi</button></div>
+<div class="msg" id="vmsg"></div></section>
+
+<section class="ctr"><h2>Scan &amp; Share</h2><p class="sub">Is page ko doston ke saath share karein.</p>
+<div id="qr"></div><small class="sub">Scan karke ye website kholein</small><br><button class="order" id="wa" style="max-width:260px" data-en="📲 Share on WhatsApp">📲 WhatsApp par share karein</button><br><button class="order" id="inst" style="display:none;max-width:260px;margin-top:10px" data-en="📲 Install app">📲 App install karein</button><br><small class="sub" data-en="📲 Install: Chrome menu ⋮ → Add to Home screen">📲 Install: Chrome menu ⋮ → Add to Home screen</small></section>
+</main>
+
+<div class="tbar" id="tbar"><span id="tb"></span><button id="tstop">✖</button></div>
+<div class="toast" id="toast"></div>
+<nav class="bn"><a href="#top">🏠<span data-en="Home">Home</span></a><a href="#demo">🛒<span data-en="Order">Order</span></a><a href="#own">📋<span data-en="Owner">Owner</span><i id="nbd">0</i></a><a href="#join">🏪<span data-en="Canteen">Canteen</span></a></nav>
+<footer><div class="wrap">Mohammad Hasan P.G. College, Jaunpur · BCA Department<br>“Let Your Ideas Take Flight at Udaan 2026”</div></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="app.js"></script>
+<script src="scene3d.js"></script>
+<script>if("serviceWorker" in navigator&&location.protocol.indexOf("http")==0)navigator.serviceWorker.register("sw.js").catch(function(){})</script>
+<script type="module">
+// ====== STEP: apni Firebase config yahan paste karein ======
+const firebaseConfig={apiKey:"PASTE_API_KEY",authDomain:"PASTE_AUTH_DOMAIN",projectId:"PASTE_PROJECT_ID",appId:"PASTE_APP_ID"};
+// ===========================================================
+import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import{getFirestore,collection,doc,setDoc,updateDoc,addDoc,onSnapshot,query,orderBy}from"https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+if(firebaseConfig.apiKey.indexOf("PASTE")<0){
+ const db=getFirestore(initializeApp(firebaseConfig));
+ window.CLOUD={addOrder:o=>setDoc(doc(db,"orders",String(o.k)),o),setStatus:(k,s)=>updateDoc(doc(db,"orders",String(k)),{s:s}),update:(k,d)=>updateDoc(doc(db,"orders",String(k)),d),addCanteen:c=>addDoc(collection(db,"canteens"),c)};
+ onSnapshot(query(collection(db,"orders"),orderBy("k")),sn=>{window.ords=sn.docs.map(d=>d.data());renderOwner()});
+ onSnapshot(query(collection(db,"canteens"),orderBy("k")),sn=>{window.cans=sn.docs.map(d=>d.data());fillCs();renderCans()});
+ document.title+=" ☁️";
+}
+</script>
+</body>
+</html>
